@@ -9,7 +9,7 @@
 <body>
 <h1>ようこそ</h1>
 <p>名前を入力してください</p><br>
-<form action="/todoApp/Controller" method="post">
+<form action="/puttyTodo/Controller_entry" method="post">
 <input type="text" name="name">
 <input type="submit" value="確認">
 </form>
