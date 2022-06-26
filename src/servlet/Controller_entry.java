@@ -50,7 +50,7 @@ public class Controller_entry extends HttpServlet {
 		session.setAttribute("registerUser", registerUser);
 		
 		//フォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/displayTodo.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/insertTodo.jsp");
 		dispatcher.forward(request, response);
 	}
 	

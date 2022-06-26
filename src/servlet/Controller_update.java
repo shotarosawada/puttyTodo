@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -16,8 +15,8 @@ import model.DTO;
 import model.Query;
 import model.User;
 
-@WebServlet("/Controller_todo")
-public class Controller_todo extends HttpServlet {
+@WebServlet("/Controller_update")
+public class Controller_update extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 //	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,20 +27,19 @@ public class Controller_todo extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		HttpSession session = request.getSession();
-		User registerUser = (User) session.getAttribute("registerUser");
+		User registerUser = (User) session.getAttribute("registerUser");	
 
-		// タスク情報の準備
-		Integer userId = 0;
-		String content = "";
-		Boolean status = false; //タスク完了のフラグ true⇒完了、false⇒未完了
+		// パラメータ初期化
+		int userId = 0;
+		int taskId = 0;
 				
 		userId = registerUser.getId();
-		content = request.getParameter("content");
-		String strDeadline = request.getParameter("deadline");
-		Date deadline = Date.valueOf(strDeadline);
+		String taskId_str = request.getParameter("taskId");
+		taskId = Integer.parseInt(taskId_str);
 		
-		// タスクの挿入
-		Query.insertTaskInfo(userId, content, status, deadline);
+		System.out.println(taskId);
+		
+		Query.switchTaskStatus(taskId);
 		
 		//登録するユーザーの情報を設定
 		ArrayList<DTO> registerTask = Query.getTaskInfo(userId);
