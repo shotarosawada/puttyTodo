@@ -49,6 +49,7 @@ function alert(){
 		String content = registerTask.getContent();
 		Date deadline = registerTask.getDeadline();
 		Boolean status = registerTask.getStatus();
+		int taskId = registerTask.getTaskId();
 %>
 
 
@@ -57,15 +58,15 @@ function alert(){
 <%		if (status == false) {
 			out.println(content + " ");
 			out.println(deadline);
+			out.println("<form action=\"/puttyTodo/Controller_update\" style=\"display:inline\" method=\"post\">");
+			out.println("<input type=\"hidden\" name=\"taskId\" value=" + taskId + ">");
+			out.println("<input type=\"submit\" value=\"完了\">");
+			out.println("</form>");
 		} else {
 			out.println("<s>" + content + "</s>");
 			out.println(deadline);
 		}
 %>
-		<form action="/puttyTodo/Controller_update" style="display:inline" method="post">
-		<input type="hidden" name="taskId" value="<%= registerTask.getTaskId() %>">
-		<input type="submit" value="完了">
-		</form>
 
 		<form action="/puttyTodo/Controller_delete"  style="display:inline" method="post" onSubmit="return alert()">
 		<input type="hidden" name="taskId" value="<%= registerTask.getTaskId() %>">
@@ -78,6 +79,8 @@ function alert(){
 <%
 	}
 %>
+
+<p><a href="http://localhost:8080/puttyTodo/index.jsp">戻る</a></p>
 
 </body>
 </html>
