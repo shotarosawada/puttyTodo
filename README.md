@@ -1,4 +1,4 @@
 # puttyTodo
 ## 概要図
 
-![image](https://user-images.githubusercontent.com/54207117/175900401-d2d665eb-b9d5-4d32-b52c-25d0ef83368c.png)
+![image](https://user-images.githubusercontent.com/54207117/175907908-8b5f13e4-33b0-40f6-b356-9255815f7365.png)
