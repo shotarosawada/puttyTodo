@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
  pageEncoding="UTF-8" %>
 <%@ page import="model.User" %>
-<%@ page import="model.Task" %>
 <%@ page import="java.util.Enumeration" %>
 <%@ page import="java.util.Collections" %>
 <%
@@ -23,6 +22,8 @@
 期日<input type="date" name="deadline">
 <input type="submit" value="作成">
 </form>
+
+<p><a href="http://localhost:8080/puttyTodo/index.jsp">戻る</a></p>
 
 </body>
 </html>

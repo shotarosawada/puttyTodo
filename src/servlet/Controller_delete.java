@@ -19,17 +19,12 @@ import model.User;
 public class Controller_delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//	}
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
 		HttpSession session = request.getSession();
 		User registerUser = (User) session.getAttribute("registerUser");	
 
-		// パラメータ初期化
 		int userId = 0;
 		int taskId = 0;
 				
@@ -37,14 +32,14 @@ public class Controller_delete extends HttpServlet {
 		String taskId_str = request.getParameter("taskId");
 		taskId = Integer.parseInt(taskId_str);
 		
-		System.out.println(taskId);
+//		デバッグ用
+//		System.out.println(taskId);
 		
 		Query.deleteTaskInfo(taskId);
 
-		//登録するユーザーの情報を設定
+		//セッションスコープに登録するタスク一覧の情報を取得
 		ArrayList<DTO> registerTask = Query.getTaskInfo(userId);
 		
-		//セッションスコープに登録タスクの一覧を保存
 		session.setAttribute("registerTask", registerTask);
 		
 		//フォワード先の設定

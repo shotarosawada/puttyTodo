@@ -11,9 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Query {
-	//private static final String POSTGRES_DRIVER = "org.postgresql.Driver";
 	private static final String JDBC_CONNECTION = "jdbc:postgresql://localhost:5432/postgres";
-	//for TEST
 	private static final String USER = "postgres";
 	private static final String PASS = "postgres";
 	
@@ -70,7 +68,7 @@ public class Query {
 			pstmt_addUser.setBoolean(3, status);
 			pstmt_addUser.setDate(4,deadline);
 
-			// Insert文の実行と、戻り値でシリアル値のユーザIDを取得
+			// Insert文の実行と、戻り値でシリアル値のタスクIDを取得
 			ResultSet rs = pstmt_addUser.executeQuery();
 			
 			while(rs.next()) {

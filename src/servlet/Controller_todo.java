@@ -20,9 +20,6 @@ import model.User;
 public class Controller_todo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -43,10 +40,9 @@ public class Controller_todo extends HttpServlet {
 		// タスクの挿入
 		Query.insertTaskInfo(userId, content, status, deadline);
 		
-		//登録するユーザーの情報を設定
+		//セッションスコープに登録するタスク一覧の情報を取得
 		ArrayList<DTO> registerTask = Query.getTaskInfo(userId);
 		
-		//セッションスコープに登録タスクの一覧を保存
 		session.setAttribute("registerTask", registerTask);
 		
 		//フォワード先の設定
