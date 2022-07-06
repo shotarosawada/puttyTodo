@@ -109,10 +109,12 @@ public class Query {
 			pstmt_status.setInt(2,taskId);
 			if(flag){
 				pstmt_status.setBoolean(1, false);
-				pstmt_status.executeQuery();
+				int updRecord = pstmt_status.executeUpdate();
+				System.out.println(updRecord);
 			} else {
 				pstmt_status.setBoolean(1, true);
-				pstmt_status.executeQuery();
+				int updRecord = pstmt_status.executeUpdate();
+				System.out.println(updRecord);
 			}
 
 		} catch (SQLException e) {
@@ -140,7 +142,8 @@ public class Query {
 			pstmt_delTask.setInt(1,taskId);
 
 			// DELETE文の実行
-			pstmt_delTask.executeQuery();
+			int delRecord = pstmt_delTask.executeUpdate();
+			System.out.println(delRecord);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
